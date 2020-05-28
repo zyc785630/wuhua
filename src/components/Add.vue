@@ -40,8 +40,8 @@ export default {
           content,
           id
         }
-        //不能在这dComment(o里去动comments，必须使用App当中对应的方法去操作
-        // this.adbj)//props传递数据的写法
+        //不能在这里去动comments，必须使用App当中对应的方法去操作
+        // this.addComment()//props传递数据的写法
         // this.$emit 也是Vue原型当中的方法 this代表的是子组件对象，也是可以使用的
         this.$emit('addComment',obj)
       }
