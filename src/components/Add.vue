@@ -20,36 +20,38 @@
 
 <script type="text/ecmascript-6">
 export default {
-  // props:['addComment'],//props传递数据需要
-  data(){
-    return {
-      username:'',
-      content:''
-    }
-  },
-  methods:{
-    addC(){
-      //根据收集到的数据创建一个对象
-      let username = this.username
-      let content = this.content
-      let id = Date.now()  //id值目前我们可以使用随机的毫秒数作为唯一值
-      //把这个对象添加到comments数组的前面
-      if(username.trim() && content.trim()){
-        let obj = {
-          username,
-          content,
-          id
+    // props:['addComment'],
+    data(){
+        return {
+            username:'',
+            content:''
         }
-        //不能在这里去动comments，必须使用App当中对应的方法去操作
-        // this.addComment()//props传递数据的写法
-        // this.$emit 也是Vue原型当中的方法 this代表的是子组件对象，也是可以使用的
-        this.$emit('addComment',obj)
-      }
-      this.username = ''
-      this.content = ''
+    },
+    methods:{
+        addC(){
+            let username = this.username
+            let content = this.content
+            // let {username,content} = this
+            // let [a,b] = [1,2]
+            let id = Date.now()
 
+            if(username.trim()&&content.trim()){
+                let obj = {
+                    username,
+                    content,
+                    id
+                }
+                // this.addComment(obj)
+                this.$emit('addComment',obj)
+            }
+
+            this.content = ''
+            this.username = ''
+
+
+
+        }
     }
-  }
 };
 </script>
 

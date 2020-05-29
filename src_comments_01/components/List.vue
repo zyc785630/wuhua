@@ -7,12 +7,20 @@
         :comment="comment"
         :deleteComment="deleteComment"
         :index="index"
-        ></Item>
+        />
     </ul>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+
+// let obj = {
+//   name:'zhaoliying'
+// }
+// let obj2 = Object.create(obj)
+
+
+
 import Item from '@/components/Item'
 export default {
     components:{
@@ -21,6 +29,7 @@ export default {
     props:['comments','deleteComment']
 };
 </script>
+
 
 <style scoped>
 .reply {

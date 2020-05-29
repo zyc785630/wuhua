@@ -7,24 +7,24 @@
       <span>{{comment.username}}</span>
       <span>说:</span>
     </p>
-    <p class="centence">{{comment.content}}</p>
+    <p class="centence">{{comment.content}}!</p>
   </li>
 </template>
 
 <script type="text/ecmascript-6">
 export default {
-    props:['comment','deleteComment','index'],
-    methods:{
-        deleteC(){
-            this.deleteComment(this.index)
-        }
+  props:['comment','deleteComment','index'],
+  methods:{
+    deleteC(){
+      this.deleteComment(this.index)
     }
+  }
 };
 </script>
 
 <style scoped>
 li {
-  transition: 0.5s;
+  transition: .5s;
   overflow: hidden;
 }
 
