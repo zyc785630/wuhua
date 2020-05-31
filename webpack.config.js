@@ -6,8 +6,9 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     // entry: path.resolve(__dirname,'src/index.js'),//入口
-    entry:'./src/index.js',//入口
-
+    // entry:'./src/index.js',//入口
+    entry: ["@babel/polyfill", "./src/index.js"],
+    
     output: {
         path: path.resolve(__dirname, 'dist'),//打包完成后的文件放在哪，dist文件夹会自动创建好
         filename: 'main.js'
