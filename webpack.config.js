@@ -27,7 +27,7 @@ module.exports = {
                     //babel/preset-env包含了一系列的ES6语法解析的插件,每个插件对应一个ES6语法
                     //babel-loader它就是依靠这些插件去解析的
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env'],
                     }
                 }
             },
@@ -54,7 +54,7 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
-            }
+            },
         ]
     },
 
@@ -94,5 +94,4 @@ module.exports = {
             '@': path.resolve(__dirname, 'src')//取别名，让@代替根路径下的src  '/src'
         }
     }
-
 };
