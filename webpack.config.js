@@ -28,6 +28,15 @@ module.exports = {
                     //babel-loader它就是依靠这些插件去解析的
                     options: {
                         presets: ['@babel/preset-env'],
+                        plugins: [  //解决element-ui按需引入打包以减小项目打包体积
+                            [
+                                "component",
+                                {
+                                    "libraryName": "element-ui",
+                                    "styleLibraryName": "theme-chalk"
+                                }
+                            ]
+                        ]
                     }
                 }
             },
@@ -55,6 +64,11 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
+            //配置loader处理字体图标
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+                loader: 'file-loader'
+            }
         ]
     },
 
@@ -82,6 +96,20 @@ module.exports = {
         port:8080,//服务启动的端口
         open:true,//是否自动打开浏览器
         quiet:true,//输出少量的提示信息
+        proxy: {
+            '/api': {//这个/api其实是为了告诉代理，以后什么样的请求，需要给我代理转发
+                target: 'http://localhost:4000',
+                //转发的目标地址，不需要路径，因为转发的时候会把发送请求的路径默认频道目标后面
+                //我们发http://localhost:8080/api/users/info
+                //最终转发的目标会变为http://localhost:4000/api/users/info
+
+                pathRewrite: {'^/api' : ''},
+                //真正的目标地址应该是http://localhost:4000/users/info
+                //这一行在干的活就是把/api去掉，不就是真正的目标地址？
+
+                changeOrigin: true, // 支持跨域, 如果协议/主机也不相同, 必须加上
+            }
+        }
     },
 
     devtool:'cheap-module-eval-source-map',//定位出错所在的原始代码行

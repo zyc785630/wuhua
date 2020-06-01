@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    // ...运算符，我们也叫扩展运算符  通常就用来打包或者拆包
+    // ...运算符打包的时候，通常打包的都是一个数组，而且用在函数的形参
+    //打包基本都是在这用
+    // function fun(a,b,...arr) {
+    //     //arr就是通过...打包成的一个数组
+    // }
+    // fun(10,20,3,4,2,1,4,1,57)
+
+    //拆包，一般也是直接拆数组，把数组的[]去掉
+    // let arr = [1,6,2,3,4]
+    // Math.max(...arr)
+    // console.log(...arr)
+
+    //拆包，也有拆对象，拆对象，只能在一个对象当中去拆另一个对象
+    //会把{}去调，拿的是键值对
+    // let obj1 = {
+    //   name:'赵丽颖',
+    //   age:33
+    // }
+
+    // let obj = {
+    //   ...obj1
+    // }
+    </script>
+</body>
+</html>

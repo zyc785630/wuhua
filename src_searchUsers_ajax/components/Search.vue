@@ -17,7 +17,7 @@ export default {
     },
     methods:{
         search(){
-            this.$store.dispatch('search',this.searchName)
+            this.$bus.$emit('searchAjax',this.searchName)
         }
     }
 };
